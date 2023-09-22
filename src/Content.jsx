@@ -1,7 +1,24 @@
+import { ResumesIndex } from "./ResumesIndex"
+import axios from "axios";
+import { useState, useEffect } from "react"
+
+
 export function Content() {
+
+  // const [resumes, setResumes ] = useState ([]);
+
+  // const handleIndexResumes = () => {
+  //   axios.get("http://localhost:3000/FILLER.json").then((response) => {
+  //   console.log(response.data);
+  //   setResumes(response.data);
+  //   });
+  // };
+
+  // useEffect(handleIndexResumes, []);
+
   return (
     <div>
-      <h1>Welcome to React!</h1>
+      <ResumesIndex resumes={resumes}/>
     </div>
-  );
+  )
 }
