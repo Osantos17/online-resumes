@@ -3,7 +3,7 @@ export function ResumesIndex(props) {
   return (
       <div>
         <h1>All Resumes</h1>
-       {/* {props.users.map((users) => (
+       {props.users.map((users) => (
          <div key={users.id}>
            <h2>Name: {user.name}</h2>
            <div className = "Company_info">
@@ -27,8 +27,9 @@ export function ResumesIndex(props) {
             <p>Description: {user.capstone.description}</p>
             <p>{user.capstone.url}</p>
           </div>
+          <button onClick={() => props.onShowResume(resume)}>More Info</button>
          </div>
-       ))} */}
+       ))}
       </div>
     );
   }
