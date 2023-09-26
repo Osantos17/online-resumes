@@ -1,11 +1,13 @@
-export function ResumesIndex(props) {
+import TwitterFeed from "./TwitterFeed";
 
+export function ResumesIndex(props) {
   return (
-      <div>
-        <h1>All Resumes</h1>
-       {props.students.map((student) => (
-         <div key={student.id}>
-           <div className = "Personal_Info">
+    <div>
+      <h1>All Resumes</h1>
+
+      {props.students.map((student) => (
+        <div key={student.id}>
+          <div className="Personal_Info">
             <p>Name: {student.first_name}</p>
             <p>Email: {student.email}</p>
             <p>Phone: {student.phone}</p>
@@ -15,8 +17,8 @@ export function ResumesIndex(props) {
             <p>Bio: {student.bio}</p>
           </div>
           <button onClick={() => props.onShowResume(resume)}>More Info</button>
-         </div>
-       ))}
-      </div>
-    );
-  }
+        </div>
+      ))}
+    </div>
+  );
+}
