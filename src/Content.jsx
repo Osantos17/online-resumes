@@ -7,37 +7,37 @@ import { ResumeShow } from "./ResumeShow"
 
 export function Content() {
 
-  const [resumes, setResumes ] = useState ([]);
-  const [isResumesShowVisible, setIsResumesShowVisible] = useState(false);
-  const [currentResume, setCurrentResume] = useState ({})
+  const [students, setStudents ] = useState ([]);
+  const [isStudentsShowVisible, setIsStudentsShowVisible] = useState(false);
+  const [currentStudent, setCurrentStudent] = useState ({})
 
 
-  const handleIndexResumes = () => {
-    axios.get("http://localhost:3000/FILLER.json").then((response) => {
+  const handleIndexStudents = () => {
+    axios.get("http://localhost:3000/students.json").then((response) => {
     console.log(response.data);
-    setResumes(response.data);
+    setStudents(response.data);
     });
   };
 
-  const handleShowResume = (resume) => {
-    console.log("handleShowResume", resume);
-    setIsResumesShowVisible(true);
-    setCurrentResume(resume);
+  const handleShowStudent = (student) => {
+    console.log("handleShowStudent", student);
+    setIsStudentsShowVisible(true);
+    setCurrentStudent(student);
   };
 
 
   const handleClose = () => {
     console.log("hanldeClose");
-    setIsResumesShowVisible(false);
+    setIsStudentsShowVisible(false);
   };
   
-  useEffect(handleIndexResumes, []);
+  useEffect(handleIndexStudents, []);
 
   return (
     <div>
-      <ResumesIndex resumes={resumes} onShowResume={handleShowResume}/>
-      <Modal show ={isResumesShowVisible} onClose={handleClose}>
-        <ResumeShow resume ={currentResume} />
+      <ResumesIndex students={students} onShowStudent={handleShowStudent}/>
+      <Modal show ={isStudentsShowVisible} onClose={handleClose}>
+        <ResumeShow student ={currentStudent} />
       </Modal>
     </div>
   )
