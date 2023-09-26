@@ -23,7 +23,7 @@ export function ResumesIndex(props) {
               <p>Education -  {student.educations[0].degree}</p>
             </div>
           </div>
-          <button onClick={() => props.onShowResume(student)}>More Info</button> 
+          <button onClick={() => props.onShowStudent(student)}>More Info</button> 
         </div>
       ))}
       </div>
