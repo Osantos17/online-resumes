@@ -1,34 +1,48 @@
 import "./ResumesIndex.css";
+import { useState } from "react";
 import { TwitterFeed } from "./TwitterFeed";
 
 export function ResumesIndex(props) {
+  const [searchFilter, setSearchFilter] = useState("");
+
   return (
     <div>
+       Search filter: <input type="text" value={searchFilter} onChange={(event) => setSearchFilter(event.target.value)} list="first_name"/>
+      <datalist id="first_name">{props.students.map(student => 
+<option key={student.id}>{student.first_name}</option>
+      )}
+      </datalist>
+      
       <div className="container">
         <h1>All Resumes</h1>
-        {props.students.map((student) => (
-          <div key={student.id} className="col">
-            <div className="Personal_Info">
-              <h3>{student.first_name}'s Resume</h3>
-              <div className="profilepic">
-                <img src={student.photo} alt="Profile" width="120" height="120" />
-              </div>
-              <div className="profileinfo">
-                <p>Name - {student.first_name}</p>
+        {props.students.filter((student) => student.first_name.toLowerCase().includes(searchFilter.toLowerCase()) || student.last_name.toLowerCase().includes(searchFilter.toLowerCase())).map((student) => (
+        <div key={student.id} className="students">
+           <br></br>
+          <div className="card">
+            <div className="card-body">
+            <img src={student.photo} alt="" width="50px" height="50px"/>
+
+          <h2>{student.first_name} {student.last_name}</h2>
+<br></br>
+<h4>Skills</h4>
+
                 {student.skills.map((skill) => (
                   <div key={skill.id}>
-                    <p>Skills - {skill.skill_name}</p>
+                    <ul>
+                    <li>{skill.skill_name}</li>
+                    </ul>
                   </div>
                 ))}
-                <p>Experience - {student.experiences[0].job}</p>
-                <p>Education - {student.educations[0].degree}</p>
-              </div>
+             
+          <br></br>
             </div>
             <TwitterFeed tweetID={student.twitter} />
             <button onClick={() => props.onShowStudent(student)}>More Info</button>
           </div>
-        ))}
       </div>
-    </div>
+              ))}
+      </div>
+      </div>
   );
+  
 }
