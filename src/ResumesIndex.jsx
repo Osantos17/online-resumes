@@ -1,5 +1,6 @@
 import "./ResumesIndex.css";
 import { useState } from "react";
+import { TwitterFeed } from "./TwitterFeed";
 
 export function ResumesIndex(props) {
   const [searchFilter, setSearchFilter] = useState("");
@@ -33,14 +34,15 @@ export function ResumesIndex(props) {
                   </div>
                 ))}
              
-<button onClick={() => props.onShowStudent(student)}>More Info</button>
           <br></br>
             </div>
-          </div>      
-       </div>
-      )) }
-        
+            <TwitterFeed tweetID={student.twitter} />
+            <button onClick={() => props.onShowStudent(student)}>More Info</button>
+          </div>
       </div>
-    </div>
+              ))}
+      </div>
+      </div>
   );
+  
 }
