@@ -3,7 +3,6 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Modal } from "./Modal";
 import { ResumeShow } from "./ResumeShow";
-import { TwitterFeed } from "./TwitterFeed";
 
 export function Content() {
   const [students, setStudents] = useState([]);

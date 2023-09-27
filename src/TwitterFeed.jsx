@@ -1,5 +1,7 @@
 import React from "react";
-import { Tweet } from "react-twitter-widgets";
+import { Tweet, eagerLoadTwitterLibrary } from "react-twitter-widgets";
+
+eagerLoadTwitterLibrary();
 
 export default {
   title: "Tweet",

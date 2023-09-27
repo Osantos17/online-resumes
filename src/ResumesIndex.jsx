@@ -2,8 +2,16 @@ import "./ResumesIndex.css";
 import { TwitterFeed } from "./TwitterFeed"
 
 export function ResumesIndex(props) {
+  const [searchFilter, setSearchFilter] = useState("");
+
   return (
     <div>
+       Search filter: <input type="text" value={searchFilter} onChange={(event) => setSearchFilter(event.target.value)} list="first_name"/>
+      <datalist id="first_name">{props.students.map(student => 
+<option key={student.id}>{student.first_name}</option>
+      )}
+      </datalist>
+      
       <div className="container">
         <h1>All Resumes</h1>
         <div className="row align-items">
@@ -33,8 +41,8 @@ export function ResumesIndex(props) {
             </div>
           ))}
         </div>
-        
       </div>
-    </div>
+      </div>
   );
+  
 }
