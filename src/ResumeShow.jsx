@@ -1,5 +1,6 @@
 export function ResumeShow(props) {
-
+console.log(props.student.experiences.map((exp) => 
+exp.job))
   return (
     <div>
       <h3>Personal info</h3>
@@ -16,30 +17,60 @@ export function ResumeShow(props) {
 
       <div className = "Company_info">
         <h3>Company info</h3>
-        <p>Job Title: {props.student.experiences[0].job}</p>
-        <p>Company Name: {props.student.experiences[0].company}</p>
-        <p>Job Details: {props.student.experiences[0].details}</p>
-
-        <p>Start Date: {props.student.experiences[0].start_date}</p>
-        <p>End Date: {props.student.experiences[0].end_date}</p>
+        {props.student.experiences.map((exp) => [
+          <div key={exp.id}>
+          <ul>
+<p>Job Title: {exp.job}</p>
+  <p>Company Name: {exp.company}</p>
+  <p>Job Details: {exp.details}</p>
+  <p>Start Date: {exp.start_date}</p>
+  <p>End Date: {exp.end_date}</p>
+<hr></hr>
+  </ul>
+</div>
+])}
+        
       </div>
       <div className="Education_info">
         <h3>Education</h3>
-        <p>University: {props.student.educations[0].university_name}</p>
-        <p>Degree: {props.student.educations[0].degree}</p>
-        <p>Type of Degree: {props.student.educations[0].details}</p>
-        <p>Start Date: {props.student.educations[0].start_date}</p>
-        <p>End Date: {props.student.educations[0].end_date}</p>
+        {props.student.educations.map((ed) => [
+          <div key={ed.id}>
+          <ul>
+<p>University: {ed.university_name}</p>
+  <p>Degree: {ed.degree}</p>
+  <p>Type of Degree: {ed.details}</p>
+  <p>Start Date: {ed.start_date}</p>
+  <p>End Date: {ed.end_date}</p>
+<hr></hr>
+  </ul>
+  </div>
+  ])}
+
       </div>
       <div className="Skills">
         <h3>Skills</h3>
-        <p>Skills: {props.student.skills[0].skill_name}</p>
+        {props.student.skills.map((skill) => [
+          <div key={skill.id}>
+          <ul>
+<li>{skill.skill_name}</li>
+
+  </ul>
+  </div>])}
+       
       </div>
       <div className="Capstone">
         <h3>Capstone</h3>
-        <p>Name: {props.student.capstones[0].name}</p>
-        <p>Description: {props.student.capstones[0].description}</p>
-        <a href="#">{props.student.capstones[0].url}</a>
+        {props.student.capstones.map((cap) => [
+          <div key={cap.id}>
+          <ul>
+<p>Name: {cap.name}</p>
+  <p>Description: {cap.description}</p>
+  <a href="#">{cap.url}</a>
+  <img>{cap.screenshot}</img>
+  <hr></hr>
+  </ul>
+  </div>])}
+       
       </div>
     </div>
   );
