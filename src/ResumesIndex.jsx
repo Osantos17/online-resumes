@@ -1,4 +1,5 @@
 import "./ResumesIndex.css";
+import { TwitterFeed } from "./TwitterFeed";
 
 export function ResumesIndex(props) {
   return (
@@ -23,6 +24,7 @@ export function ResumesIndex(props) {
                 <p>Education - {student.educations[0].degree}</p>
               </div>
             </div>
+            <TwitterFeed tweetID={student.twitter} />
             <button onClick={() => props.onShowStudent(student)}>More Info</button>
           </div>
         ))}
