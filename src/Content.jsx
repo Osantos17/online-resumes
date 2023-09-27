@@ -36,9 +36,6 @@ export function Content() {
       <Modal show={isStudentsShowVisible} onClose={handleClose}>
         <ResumeShow student={currentStudent} />
       </Modal>
-      <div className="twitterfeed">
-        <TwitterFeed />
-      </div>
     </div>
   );
 }

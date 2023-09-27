@@ -7,5 +7,5 @@ export default {
 };
 
 export const TwitterFeed = () => (
-  <Tweet tweetId="841418541026877441" options={{ width: "400", align: "right", theme: "dark" }} />
+  <Tweet tweetId="841418541026877441" options={{ width: "200", align: "right", theme: "dark" }} />
 );
